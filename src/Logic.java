@@ -7,7 +7,8 @@ public class Logic {
         boolean won = false;
             for(int j = 0; j < 3; j++){
                 if (field[j][0].getCurrentPlayer() == field[j][1].getCurrentPlayer()
-                        && field[j][2].getCurrentPlayer() == field[j][0].getCurrentPlayer())
+                        && field[j][2].getCurrentPlayer() == field[j][0].getCurrentPlayer()
+                        && field[j][1].getCurrentPlayer() != 0)
                 won = true;
         }
         for (int i = 0;!won && i < 3; i++){

@@ -8,6 +8,7 @@ public class TicTacToeButton {
     private final int posY;
     private final int graphicsOffset = 20;
 
+
     private int currentPlayer = 0; // 0 = None; 1 = Player1 --> X; 2 = Player2 --> O
 
     public TicTacToeButton(int height, int width, int posX, int posY) {
@@ -26,9 +27,12 @@ public class TicTacToeButton {
     }
 
     public void paintTicTacToeButton(Graphics g){
-        g.setColor(Color.BLACK);
-        g.drawRect(posX, posY, width, height);
-        paintSymbol(g);
+
+            g.setColor(Color.BLACK);
+            g.drawRect(posX, posY, width, height);
+            paintSymbol(g);
+
+
     }
     private void paintSymbol(Graphics g){
         switch (currentPlayer) {
@@ -77,12 +81,15 @@ public class TicTacToeButton {
         if(currentPlayer <= 2 && currentPlayer >= 0)
             this.currentPlayer = currentPlayer;
     }
-    public void isClicked(int x, int y, int playerToMove) {
+    public boolean isClicked(int x, int y, int playerToMove) {
         boolean isClicked = false;
         if (x >= this.posX && x < this.posX + width && y >= this.posY
                 && y < this.posY + height) {
             isClicked = true;
             setCurrentPlayer(playerToMove);
         }
+        return isClicked;
     }
+
+
 }
